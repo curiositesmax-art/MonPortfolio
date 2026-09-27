@@ -1,0 +1,772 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    color: #333;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+}
+
+/* Header & Nav */
+header {
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.logo span {
+    color: #4a90e2;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #4a90e2;
+}
+
+/* Buttons */
+.btn-primary {
+    background: #4a90e2;
+    color: #fff !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    display: inline-block;
+    background: #2c3e50;
+    color: #fff;
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+/* Style du conteneur global */
+.gallery-container {
+    background: linear-gradient(135deg, #2c3e50, #4a90e2);
+    
+    border-radius: 24px;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.gallery-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    font-size: 20px;
+    letter-spacing: 0.04em;
+    color: #9a9184;
+    font-weight: 600;
+}
+ 
+
+
+
+
+/* Zone 3D */
+.stage {
+    position: relative;
+    height: 320px;
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+/* Cartes d'images */
+.card {
+    position: absolute;
+    width: 200px;
+    height: 280px;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Positions 3D */
+.card.active {
+    transform: translateZ(100px) rotateY(0deg);
+    z-index: 5;
+    opacity: 1;
+}
+
+.card.left-1 {
+    transform: translateX(-110px) translateZ(0px) rotateY(25deg);
+    z-index: 4;
+    opacity: 0.85;
+}
+
+.card.left-2 {
+    transform: translateX(-200px) translateZ(-100px) rotateY(35deg);
+    z-index: 3;
+    opacity: 0.5;
+}
+
+.card.right-1 {
+    transform: translateX(110px) translateZ(0px) rotateY(-25deg);
+    z-index: 4;
+    opacity: 0.85;
+}
+
+.card.right-2 {
+    transform: translateX(200px) translateZ(-100px) rotateY(-35deg);
+    z-index: 3;
+    opacity: 0.5;
+}
+
+.card.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateZ(-200px);
+}
+
+
+
+
+
+
+
+
+
+/* 1. On augmente la hauteur de la zone du carrousel (de 300px à 420px) 
+.stage {
+    position: relative;
+    height: 420px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    margin: 20px 0;
+}
+
+/* 2. On augmente la taille des cartes (de 180x250px à 240x350px par exemple) 
+.card {
+    position: absolute;
+    width: 240px;
+    height: 350px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    transition: all 0.5s ease-in-out;
+}
+
+/* 3. Ajuster les positions et zoom (scale) selon l'état des cartes 
+.card.active {
+    transform: translateX(0) scale(1.1) zIndex(5);
+    opacity: 1;
+    z-index: 5;
+}
+
+.card.left-1 {
+    transform: translateX(-140px) scale(0.9);
+    opacity: 0.85;
+    z-index: 4;
+}
+
+.card.right-1 {
+    transform: translateX(140px) scale(0.9);
+    opacity: 0.85;
+    z-index: 4;
+}
+
+.card.left-2 {
+    transform: translateX(-260px) scale(0.75);
+    opacity: 0.6;
+    z-index: 3;
+}
+
+.card.right-2 {
+    transform: translateX(260px) scale(0.75);
+    opacity: 0.6;
+    z-index: 3;
+}
+
+.card.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+*/
+
+
+/* Contrôles et flèches < > */
+.gallery-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background: #ffffff;
+    padding: 8px 18px;
+    border-radius: 30px;
+    width: fit-content;
+    margin: 20px auto 0 auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.nav-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 2px 8px;
+    transition: color 0.2s;
+}
+
+.nav-btn:hover {
+    color: #4a90e2;
+}
+
+.dots-container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background-color: #ccc;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.dot.active-dot {
+    width: 16px;
+    background-color: #222;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #2c3e50, #4a90e2);
+    border-radius: 24px;
+    padding: 30px;
+    color: #fff;
+    text-align: center;
+    padding: 5rem 1rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Sections */
+section {
+    padding: 4rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: #2c3e50;
+}
+
+/* Services */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.service-card i {
+    font-size: 2.5rem;
+    color: #4a90e2;
+    margin-bottom: 1rem;
+}
+
+
+
+
+
+
+/* ==========================================
+   STYLE DE LA SECTION PROJETS / RÉALISATIONS
+   ========================================== */
+.projects-section {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.projects-section h2 {
+    font-size: 2rem;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.section-subtitle {
+    color: #64748b;
+    font-size: 1rem;
+    margin-bottom: 40px;
+}
+
+/* Grille responsive : 4 cartes par ligne sur écran large */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+/* Structure de la carte projet */
+.project-card {
+    background: #e2e8f0;
+    border-radius: 18px;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Zone d'image + Badge */
+.project-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    background-color: #f1f5f9;
+}
+
+.project-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Badge vert avec le score (ex: 98, 99) */
+.project-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #84cc16; /* Vert clair */
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Pied de la carte (titre + icône) */
+.project-footer {
+    background-color: #e2e8f0;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-title {
+    color: #1e293b;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.project-leaf-icon {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+
+
+
+
+
+
+/* Portfolio 
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.tags {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.tags span {
+    background: #eef2f5;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+
+*/
+
+
+/* Form */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: #2c3e50;
+    color: #fff;
+}
+
+
+
+
+
+/* Conteneur principal en alignement horizontal (3 colonnes) */
+.services-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Style de la carte cliquable */
+.service-card {
+    flex: 1;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px 20px;
+    text-align: center;
+    text-decoration: none; /* Enlève le soulignement du lien */
+    color: inherit;         /* Conserve la couleur du texte d'origine */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Effet au survol de la souris */
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.service-card h3 {
+    margin: 15px 0 10px 0;
+    font-size: 1.2rem;
+    color: #1e293b;
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+/* ==========================================
+   STYLE DE LA NAVIGATION (HEADER)
+   ========================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.navbar .logo span {
+    color: #3b82f6;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #475569;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #3b82f6;
+}
+
+.btn-contact {
+    background-color: #3b82f6;
+    color: #ffffff !important;
+    padding: 8px 18px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease !important;
+}
+
+.btn-contact:hover {
+    background-color: #2563eb;
+}
+
+
+
+/* ==========================================
+   STYLE DE LA PAGE DE DÉTAIL DES SERVICES
+   ========================================== */
+.page-detail-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 0px;
+}
+
+.page-detail-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    text-align: center;
+}
+
+.service-icon-large {
+    font-size: 3rem;
+    color: #3b82f6;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.page-detail-card h1 {
+    font-size: 2.2rem;
+    color: #1e293b;
+    margin-bottom: 10px;
+}
+
+.page-detail-card .subtitle {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 35px;
+}
+
+.page-detail-card h2 {
+    font-size: 1.4rem;
+    color: #1e293b;
+    text-align: left;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 10px;
+}
+
+.features-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background: #f8fafc;
+    padding: 18px 20px;
+    border-radius: 12px;
+}
+
+.check-icon {
+    background: #e0f2fe;
+    color: #0284c7;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.feature-item h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.05rem;
+    color: #0f172a;
+}
+
+.feature-item p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #64748b;
+}
+
+/* Zone des boutons de retour et d'action */
+.action-zone {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-back {
+    text-decoration: none;
+    color: #64748b;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+.btn-primary {
+    text-decoration: none;
+    background: #3b82f6;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 10px 24px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #2563eb;
+}
+
+/* Style pour adapter les images dans la page de détail */
+.page-detail-card img {
+    max-width: 100%;       /* L'image ne dépassera jamais de la largeur du bloc */
+    width: 100%;           /* Remplit le bloc de manière fluide */
+    height: 500px;         /* Hauteur fixe pour un rendu propre (ajustable) */
+    object-fit: cover;     /* Recadre l'image sans la déformer/étirer */
+    border-radius: 12px;   /* Bords arrondis modernes */
+    margin: 20px 0 30px;   /* Espacement au-dessus et en-dessous de l'image */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Légère ombre */
+}

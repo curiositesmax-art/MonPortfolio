@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio Freelance | Développeur Web & IT</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Mon<span>Portfolio</span></div>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#contact" class="btn-primary">Me contacter</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+
+<div class="gallery-container">
+    <!-- En-tête avec compteur dynamique -->
+    <div class="gallery-header">
+        <span class="frame-label" id="frameLabel">PROJET 01</span>
+        <span class="frame-count" id="frameCount">01 / 05</span>
+    </div>
+
+    <!-- Conteneur des cartes 3D -->
+    <div class="stage" id="stage">
+        <!-- Les cartes d'images seront générées/mises à jour par JavaScript -->
+    </div>
+
+    <!-- Barre de contrôle avec les flèches -->
+    <div class="gallery-controls">
+        <button class="nav-btn" id="prevBtn">&lt;</button>
+        <div class="dots-container" id="dotsContainer">
+            <!-- Les points de pagination -->
+        </div>
+        <button class="nav-btn" id="nextBtn">&gt;</button>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <h1>Création de Solutions Web sur Mesure & Systèmes IT</h1>
+            <p>J'accompagne les entreprises et particuliers dans la concrétisation de leurs projets numériques.</p>
+            <a href="#projets" class="btn-secondary">Voir mes réalisations</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+<section id="services" class="services">
+    <h2>Mes Prestations Freelance</h2>
+
+    <div class="services-container">
+
+        <!-- Carte 1 -->
+        <a href="web.html" class="service-card">
+            <div class="service-icon">&lt;/&gt;</div>
+            <h3>Développement Web</h3>
+            <p>Création de sites vitrines, applications web et tableaux de bord d'administration sur-mesure.</p>
+        </a>
+
+        <!-- Carte 2 -->
+        <a href="depannage.html" class="service-card">
+            <div class="service-icon">&#128187;</div>
+            <h3>Diagnostic &amp; Dépannages &amp; Installations</h3>
+            <p>Assistance informatique, résolution de pannes, installation et configuration d'équipements.</p>
+        </a>
+
+        <!-- Carte 3 -->
+        <a href="reseaux.html" class="service-card">
+            <div class="service-icon">&#9000;</div>
+            <h3>Solutions IT &amp; Réseaux</h3>
+            <p>Conseil, déploiement et optimisation de vos infrastructures et services informatiques.</p>
+        </a>
+
+    </div>
+</section>
+
+
+
+
+
+
+<!-- Section Mes Réalisations / Projets -->
+<section id="projets" class="projects-section">
+    <h2>Mes Réalisations</h2>
+    <p class="section-subtitle">Découvrez quelques-uns de mes projets web récemment réalisés.</p>
+
+    <div class="projects-grid">
+
+        <!-- Projet 1 -->
+        <a href="https://curiositesmax-art.github.io/cr-ation-siteweb/" target="_blank" rel="noopener noreferrer" class="project-card">
+            <div class="project-image-wrapper">
+                <img src="image30.jpg" alt="Chamard Optique">
+                <span class="project-badge">1</span>
+            </div>
+            <div class="project-footer">
+                <span class="project-title">Site Web de Resto</span>
+                <span class="project-leaf-icon">&#127811;</span>
+            </div>
+        </a>
+
+        <!-- Projet 2 -->
+        <a href="https://www.exemple2.com" target="_blank" rel="noopener noreferrer" class="project-card">
+            <div class="project-image-wrapper">
+                <img src="image2.jpg" alt="Vintage Classic Autos">
+                <span class="project-badge">98</span>
+            </div>
+            <div class="project-footer">
+                <span class="project-title">Vintage Classic Autos</span>
+                <span class="project-leaf-icon">&#127811;</span>
+            </div>
+        </a>
+
+        <!-- Projet 3 -->
+        <a href="https://www.exemple3.com" target="_blank" rel="noopener noreferrer" class="project-card">
+            <div class="project-image-wrapper">
+                <img src="image3.jpg" alt="Coutellerie Perrier">
+                <span class="project-badge">99</span>
+            </div>
+            <div class="project-footer">
+                <span class="project-title">Coutellerie Perrier</span>
+                <span class="project-leaf-icon">&#127811;</span>
+            </div>
+        </a>
+
+        <!-- Projet 4 -->
+        <a href="https://www.exemple4.com" target="_blank" rel="noopener noreferrer" class="project-card">
+            <div class="project-image-wrapper">
+                <img src="image4.jpg" alt="Cuisines et Solutions">
+                <span class="project-badge">90</span>
+            </div>
+            <div class="project-footer">
+                <span class="project-title">Cuisines et Solutions</span>
+                <span class="project-leaf-icon">&#127811;</span>
+            </div>
+        </a>
+
+        <!-- Projet 5 -->
+        <a href="https://www.exemple5.com" target="_blank" rel="noopener noreferrer" class="project-card">
+            <div class="project-image-wrapper">
+                <img src="image5.jpg" alt="BtoB Clean">
+                <span class="project-badge">87</span>
+            </div>
+            <div class="project-footer">
+                <span class="project-title">BtoB Clean</span>
+                <span class="project-leaf-icon">&#127811;</span>
+            </div>
+        </a>
+
+        <!-- Projet 6 -->
+        <a href="https://www.exemple6.com" target="_blank" rel="noopener noreferrer" class="project-card">
+            <div class="project-image-wrapper">
+                <img src="image6.jpg" alt="FERME GRAND CHEMIN">
+                <span class="project-badge">84</span>
+            </div>
+            <div class="project-footer">
+                <span class="project-title">FERME GRAND CHEMIN</span>
+                <span class="project-leaf-icon">&#127811;</span>
+            </div>
+        </a>
+
+        <!-- Projet 7 -->
+        <a href="https://www.exemple7.com" target="_blank" rel="noopener noreferrer" class="project-card">
+            <div class="project-image-wrapper">
+                <img src="image7.jpg" alt="Umaneis RH">
+                <span class="project-badge">95</span>
+            </div>
+            <div class="project-footer">
+                <span class="project-title">Umaneis RH</span>
+                <span class="project-leaf-icon">&#127811;</span>
+            </div>
+        </a>
+
+        <!-- Projet 8 -->
+        <a href="https://www.exemple8.com" target="_blank" rel="noopener noreferrer" class="project-card">
+            <div class="project-image-wrapper">
+                <img src="image8.jpg" alt="Deger Energie">
+                <span class="project-badge">86</span>
+            </div>
+            <div class="project-footer">
+                <span class="project-title">Deger Energie</span>
+                <span class="project-leaf-icon">&#127811;</span>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+
+
+
+
+
+
+    <!-- Portfolio / Projets 
+    <section id="projets" class="portfolio">
+        <h2>Mes Réalisations</h2>
+        <div class="portfolio-grid">
+            <!-- Projet 1 
+            <div class="project-card">
+                <img src="images/dashboard-preview.png" alt="Dashboard d'administration web">
+                <div class="project-info">
+                    <h3>Dashboard d'Administration Responsive</h3>
+                    <p>Interface de gestion moderne développée en HTML, CSS et JavaScript avec suivi des ventes et statistiques.</p>
+                    <div class="tags">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Projet 2 (Exemple) 
+            <div class="project-card">
+                <img src="images/site-vitrine.png" alt="Site Web Pro">
+                <div class="project-info">
+                    <h3>Application & Application Web</h3>
+                    <p>Développement d'interfaces et intégrations d'outils métiers.</p>
+                    <div class="tags">
+                        <span>Web</span>
+                        <span>UI/UX</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+     -->
+
+    <!-- Formulaire de Contact -->
+    <section id="contact" class="contact">
+        <h2>Un projet en tête ? Contactez-moi</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Votre Nom" required>
+            <input type="email" placeholder="Votre Email" required>
+            <input type="text" placeholder="Sujet / Type de projet">
+            <textarea placeholder="Décrivez votre besoin..." rows="5" required></textarea>
+            <button type="submit" class="btn-primary">Envoyer le message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 - Tous droits réservés | Freelance IT & Web</p>
+    </footer>
+<script src="script.js"></script>
+</body>
+</html>
