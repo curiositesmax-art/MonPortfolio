@@ -770,3 +770,126 @@ footer {
     margin: 20px 0 30px;   /* Espacement au-dessus et en-dessous de l'image */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Légère ombre */
 }
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   1. STYLES PAR DÉFAUT (Ordinateurs & Grands Écrans)
+   ========================================================================== */
+
+/* Bouton du menu mobile : caché sur ordinateur */
+.menutoggle {
+  display: none;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 24px;
+  color: #111;
+  z-index: 1001;
+}
+
+header.sticky .menutoggle {
+  filter: invert(1);
+}
+
+.banniere .contenu h2 {
+  font-size: 2em;
+}
+
+.contenu p:nth-child(2) {
+  font-size: 1.2em;
+}
+
+.expert, 
+.menu {
+  margin-top: 0px;
+}  
+
+.temoignage,
+.temoignage h2 {
+  font-size: 2em;
+  text-align: center;
+}
+
+.temoignage p {
+  text-align: center;
+}
+
+.contactform {
+  margin-left: 25px;
+}
+
+
+/* ==========================================================================
+   2. MEDIA QUERY : MOBILES & TABLETTES PORTRAIT (Largeur <= 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+
+  /* Affiche le bouton hamburger */
+  .menutoggle {
+    display: flex;
+  }
+
+  /* Masque le menu classique et prépare le menu déroulant */
+  .navbar {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Affiche le menu quand il est activé en JavaScript */
+  .navbar.active {
+    display: flex;
+  }
+
+  /* Disposition verticale pour les blocs/colonnes sur mobile */
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .row .col50 {
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .row .col50 img {
+    margin-left: 0; /* Réaligne l'image sur petit écran */
+    max-width: 100%;
+    height: auto;
+  }
+
+  .contactform {
+    margin-left: 0; /* Alignement propre sur mobile */
+  }
+}
+
+
+/* ==========================================================================
+   3. MEDIA QUERY : PETITS MOBILES (Largeur <= 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  .banniere .contenu h2 {
+    font-size: 1.5em; /* Adapte la taille des titres sur très petits écrans */
+  }
+
+  .temoignage h2 {
+    font-size: 1.5em;
+  }
+}
