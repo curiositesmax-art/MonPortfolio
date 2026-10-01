@@ -7,7 +7,7 @@
 }
 
 body {
-    color: #333;
+    color: #04021b;
     line-height: 1.6;
     background-color: #f8f9fa;
 }
@@ -87,6 +87,213 @@ header {
 
 
 
+/* ==========================================================================
+   NOUVELLE GALERIE 3D CIRCULAIRE (Totalement isolée des autres styles)
+   ========================================================================== */
+
+/* Section englobante avec fond sombre / dégradé moderne */
+.my-3d-carrousel-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 40px 20px;
+  background: linear-gradient(145deg, #284892, #1c4586); /* Style sombre/cyber futuriste */
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Zone d'affichage 3D */
+.my-3d-carrousel-container {
+  width: 100%;
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+/* Boîte cylindrique 3D qui tourne */
+.my-3d-carrousel-box {
+  position: relative;
+  width: 180px;
+  height: 220px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  animation: rotate3DGallery 25s linear infinite;
+}
+
+/* Pause automatique quand la souris passe dessus */
+.my-3d-carrousel-box:hover {
+  animation-play-state: paused;
+}
+
+/* Positionnement des 6 images en cercle 3D (360deg / 6 = 60deg) */
+.my-3d-carrousel-box span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transform: rotateY(calc(var(--i) * 60deg)) translateZ(300px);
+}
+
+.my-3d-carrousel-box span img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.my-3d-carrousel-box span img:hover {
+  border-color: #38bdf8;
+  transform: scale(1.05);
+}
+
+/* Animation CSS continue */
+@keyframes rotate3DGallery {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+/* Style de la barre de boutons en bas */
+.my-3d-controls {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  z-index: 10;
+}
+
+.my-3d-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #f8fafc;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: 500;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.my-3d-btn:hover {
+  background: #38bdf8;
+  color: #0f172a;
+  border-color: #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+}
+
+/* Classe CSS activée par JS si animation en pause */
+.my-3d-carrousel-box.paused {
+  animation-play-state: paused !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.carousel-section {
+  width: 100%;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 40px 20px;
+  background: #0d1117;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1200px;
+}
+
+/* Élément clé pour le mouvement : la transition */
+.carousel-card {
+  position: absolute;
+  width: 170px;
+  height: 250px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  /* Mouvement fluide lors du changement de position */
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease;
+  cursor: pointer;
+}
+
+.carousel-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-controls {
+  margin-top: 25px;
+  display: flex;
+  gap: 12px;
+}
+
+.control-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+
+
+
+.control-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+
+
+
+
+
 /* Style du conteneur global */
 .gallery-container {
     background: linear-gradient(135deg, #2c3e50, #4a90e2);
@@ -109,6 +316,12 @@ header {
     font-weight: 600;
 }
  
+
+
+
+
+
+
 
 
 
@@ -250,7 +463,7 @@ header {
 */
 
 
-/* Contrôles et flèches < > */
+/* Contrôles et flèches < > 
 .gallery-controls {
     display: flex;
     align-items: center;
@@ -307,6 +520,159 @@ header {
 
 
 
+.project-card {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 420px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #2b4c6f 0%, #3a75c4 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+.project-title {
+  position: absolute;
+  top: 20px;
+  left: 25px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  font-size: 0.85em;
+  letter-spacing: 1px;
+}
+
+.project-count {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85em;
+  font-weight: 600;
+}
+
+/* Zone slider avec perspective 3D 
+.slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 280px;
+  margin-top: 20px;
+  perspective: 1000px;
+  position: relative;
+}
+
+/* Base des cartes 
+.slider-container .card {
+  position: absolute;
+  width: 150px;
+  height: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.slider-container .card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Styles des positions 3D (2 à gauche, 1 au centre, 2 à droite) 
+.card.pos-2 {
+  transform: translateX(-240px) scale(0.75) rotateY(25deg);
+  opacity: 0.4;
+  z-index: 1;
+}
+
+.card.pos-1 {
+  transform: translateX(-130px) scale(0.88) rotateY(15deg);
+  opacity: 0.75;
+  z-index: 2;
+}
+
+.card.pos-0 {
+  transform: translateX(0) scale(1.1) rotateY(0deg);
+  opacity: 1;
+  z-index: 3;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+.card.pos1 {
+  transform: translateX(130px) scale(0.88) rotateY(-15deg);
+  opacity: 0.75;
+  z-index: 2;
+}
+
+.card.pos2 {
+  transform: translateX(240px) scale(0.75) rotateY(-25deg);
+  opacity: 0.4;
+  z-index: 1;
+}
+
+/* Barre de navigation 
+.slider-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  padding: 8px 18px;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  width: 16px;
+  height: 6px;
+  background: #111;
+  border-radius: 10px;
+}
+
+
+
+*/
+
+
+
+
+ 
+
+
+
 
 /* Hero Section */
 .hero {
@@ -344,7 +710,7 @@ h2 {
 }
 
 .service-card {
-    background: #fff;
+    background: #ffffff;
     padding: 2rem;
     border-radius: 8px;
     text-align: center;
@@ -356,6 +722,210 @@ h2 {
     color: #4a90e2;
     margin-bottom: 1rem;
 }
+
+
+
+
+
+
+/* Conteneur principal 
+.gallery-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  background: #000; /* Fond noir comme sur la capture 
+  overflow: hidden;
+}
+
+/* Boîte 3D animée 
+.gallery-box {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  animation: move 20s linear infinite;
+}
+
+/* Pause de la rotation au survol de la souris 
+.gallery-box:hover {
+  animation-play-state: paused;
+}
+
+/* Chaque image est positionnée en cercle selon son numéro (--i) 
+.gallery-box span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  /* Calcule l'angle pour 6 images (360deg / 6 = 60deg) 
+  transform: rotateY(calc(var(--i) * 60deg)) translateZ(350px);
+}
+
+.gallery-box span img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* Keyframes pour la rotation continue 3D 
+@keyframes move {
+  0% {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(1000px) rotateY(360deg);
+  }
+}
+
+/* Adaptation pour petit écran mobile 
+@media (max-width: 768px) {
+  .gallery-box {
+    width: 140px;
+    height: 140px;
+  }
+  .gallery-box span {
+    transform: rotateY(calc(var(--i) * 60deg)) translateZ(220px);
+  }
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   NOUVELLE GALERIE 3D CIRCULAIRE (Totalement isolée des autres styles)
+   ========================================================================== */
+
+/* Section englobante avec fond sombre / dégradé moderne */
+.my-3d-carrousel-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 40px 20px;
+  background: linear-gradient(145deg, #0f172a, #1e293b); /* Style sombre/cyber futuriste */
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Zone d'affichage 3D */
+.my-3d-carrousel-container {
+  width: 100%;
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+/* Boîte cylindrique 3D qui tourne */
+.my-3d-carrousel-box {
+  position: relative;
+  width: 180px;
+  height: 220px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  animation: rotate3DGallery 25s linear infinite;
+}
+
+/* Pause automatique quand la souris passe dessus */
+.my-3d-carrousel-box:hover {
+  animation-play-state: paused;
+}
+
+/* Positionnement des 6 images en cercle 3D (360deg / 6 = 60deg) */
+.my-3d-carrousel-box span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transform: rotateY(calc(var(--i) * 60deg)) translateZ(300px);
+}
+
+.my-3d-carrousel-box span img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.my-3d-carrousel-box span img:hover {
+  border-color: #38bdf8;
+  transform: scale(1.05);
+}
+
+/* Animation CSS continue */
+@keyframes rotate3DGallery {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+/* Style de la barre de boutons en bas */
+.my-3d-controls {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  z-index: 10;
+}
+
+.my-3d-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #f8fafc;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: 500;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.my-3d-btn:hover {
+  background: #38bdf8;
+  color: #0f172a;
+  border-color: #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+}
+
+/* Classe CSS activée par JS si animation en pause */
+.my-3d-carrousel-box.paused {
+  animation-play-state: paused !important;
+}
+
+
 
 
 
@@ -779,117 +1349,3 @@ footer {
 
 
 
-/* ==========================================================================
-   1. STYLES PAR DÉFAUT (Ordinateurs & Grands Écrans)
-   ========================================================================== */
-
-/* Bouton du menu mobile : caché sur ordinateur */
-.menutoggle {
-  display: none;
-  position: relative;
-  width: 40px;
-  height: 40px;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 24px;
-  color: #111;
-  z-index: 1001;
-}
-
-header.sticky .menutoggle {
-  filter: invert(1);
-}
-
-.banniere .contenu h2 {
-  font-size: 2em;
-}
-
-.contenu p:nth-child(2) {
-  font-size: 1.2em;
-}
-
-.expert, 
-.menu {
-  margin-top: 0px;
-}  
-
-.temoignage,
-.temoignage h2 {
-  font-size: 2em;
-  text-align: center;
-}
-
-.temoignage p {
-  text-align: center;
-}
-
-.contactform {
-  margin-left: 25px;
-}
-
-
-/* ==========================================================================
-   2. MEDIA QUERY : MOBILES & TABLETTES PORTRAIT (Largeur <= 768px)
-   ========================================================================== */
-@media (max-width: 768px) {
-
-  /* Affiche le bouton hamburger */
-  .menutoggle {
-    display: flex;
-  }
-
-  /* Masque le menu classique et prépare le menu déroulant */
-  .navbar {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #fff;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  /* Affiche le menu quand il est activé en JavaScript */
-  .navbar.active {
-    display: flex;
-  }
-
-  /* Disposition verticale pour les blocs/colonnes sur mobile */
-  .row {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .row .col50 {
-    position: relative;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .row .col50 img {
-    margin-left: 0; /* Réaligne l'image sur petit écran */
-    max-width: 100%;
-    height: auto;
-  }
-
-  .contactform {
-    margin-left: 0; /* Alignement propre sur mobile */
-  }
-}
-
-
-/* ==========================================================================
-   3. MEDIA QUERY : PETITS MOBILES (Largeur <= 480px)
-   ========================================================================== */
-@media (max-width: 480px) {
-  .banniere .contenu h2 {
-    font-size: 1.5em; /* Adapte la taille des titres sur très petits écrans */
-  }
-
-  .temoignage h2 {
-    font-size: 1.5em;
-  }
-}
